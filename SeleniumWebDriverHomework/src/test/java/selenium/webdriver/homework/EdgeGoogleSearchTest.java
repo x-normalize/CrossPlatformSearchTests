@@ -15,7 +15,7 @@ import static utils.Constants.*;
 
 public class EdgeGoogleSearchTest extends BaseSetupClass {
 
-    private static final Logger logger = Logger.getLogger(FirefoxGoogleSearchTest.class.getName());
+    private static final Logger logger = Logger.getLogger(EdgeGoogleSearchTest.class.getName());
 
     @Test
     public void verifySearchResultInGoogle_withEdge() {

@@ -15,7 +15,7 @@ import static utils.Constants.*;
 
 public class FirefoxBingSearchTest extends BaseSetupClass {
 
-    private static final Logger logger = Logger.getLogger(EdgeBingSearchTest.class.getName());
+    private static final Logger logger = Logger.getLogger(FirefoxBingSearchTest.class.getName());
 
     @Test
     public void verifySearchResultInBing_withFirefox() {

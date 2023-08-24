@@ -15,7 +15,7 @@ import static utils.Constants.*;
 
 public class ChromeBingSearchTest extends BaseSetupClass {
 
-    private static final Logger logger = Logger.getLogger(EdgeBingSearchTest.class.getName());
+    private static final Logger logger = Logger.getLogger(ChromeBingSearchTest.class.getName());
 
     @Test
     public void verifySearchResultInBing_withChrome() {

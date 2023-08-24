@@ -15,7 +15,7 @@ import static utils.Constants.*;
 
 public class ChromeGoogleSearchTest extends BaseSetupClass {
 
-    private static final Logger logger = Logger.getLogger(FirefoxGoogleSearchTest.class.getName());
+    private static final Logger logger = Logger.getLogger(ChromeGoogleSearchTest.class.getName());
 
     @Test
     public void verifySearchResultInGoogle_withChrome() {
