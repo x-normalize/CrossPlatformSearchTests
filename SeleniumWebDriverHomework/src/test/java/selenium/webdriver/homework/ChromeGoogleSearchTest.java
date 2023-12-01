@@ -1,7 +1,6 @@
 package selenium.webdriver.homework;
 
 import basesetup.BaseSetupClass;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,6 +11,7 @@ import java.time.Duration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.junit.jupiter.api.Assertions.*;
 import static utils.Constants.*;
 
 public class ChromeGoogleSearchTest extends BaseSetupClass {
@@ -23,10 +23,8 @@ public class ChromeGoogleSearchTest extends BaseSetupClass {
         initializeDriver("chrome");
         driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
 
-        // Navigate to Google.com
-        driver.get(GOOGLE_URL);
-
         // Navigate to Google.com and agree to consent
+        driver.get(GOOGLE_URL);
         WebElement agreeButton = driver.findElement(By.xpath(utils.Constants.GOOGLE_AGREE_BUTTON_ID));
         agreeButton.click();
 
@@ -44,11 +42,8 @@ public class ChromeGoogleSearchTest extends BaseSetupClass {
         String firstResultText = firstResult.getText();
 
         // Verify if the result matches the expected or reversed expected
-        if (firstResultText.contains(VALIDATE_RESULT) || firstResultText.contains(REVERSED_VALIDATE_RESULT)) {
-            Assertions.assertTrue(true, "Expected result found: " + firstResultText);
-        } else {
-            Assertions.fail("Expected result not found: " + firstResultText);
-        }
+        assertTrue(firstResultText.contains(VALIDATE_RESULT) || firstResultText.contains(REVERSED_VALIDATE_RESULT),
+                "Expected result not found: " + firstResultText);
 
         // Print a message after the test passes
         logger.log(Level.INFO, "Test passed! Search result found: " + firstResultText);
