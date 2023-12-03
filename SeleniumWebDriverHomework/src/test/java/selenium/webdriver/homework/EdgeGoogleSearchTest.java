@@ -1,7 +1,6 @@
 package selenium.webdriver.homework;
 
 import basesetup.BaseSetupClass;
-import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
@@ -12,6 +11,7 @@ import java.time.Duration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.Constants.*;
 
 public class EdgeGoogleSearchTest extends BaseSetupClass {
@@ -44,11 +44,8 @@ public class EdgeGoogleSearchTest extends BaseSetupClass {
         String firstResultText = firstResult.getText();
 
         // Verify if the result matches the expected or reversed expected
-        if (firstResultText.contains(VALIDATE_RESULT) || firstResultText.contains(REVERSED_VALIDATE_RESULT)) {
-            Assertions.assertTrue(true, "Expected result found: " + firstResultText);
-        } else {
-            Assertions.fail("Expected result not found: " + firstResultText);
-        }
+        assertTrue(firstResultText.contains(VALIDATE_RESULT) || firstResultText.contains(REVERSED_VALIDATE_RESULT),
+                "Expected result not found: " + firstResultText);
 
         // Print a message after the test passes
         logger.log(Level.INFO, "Test passed! Search result found: " + firstResultText);
