@@ -12,6 +12,7 @@ import java.time.Duration;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import static org.junit.jupiter.api.Assertions.assertTrue;
 import static utils.Constants.*;
 
 public class FirefoxBingSearchTest extends BaseSetupClass {
@@ -44,19 +45,11 @@ public class FirefoxBingSearchTest extends BaseSetupClass {
         String firstResultText = firstResult.getText();
 
         // Verify if the result matches the expected or reversed expected
-        if (firstResultText.contains(VALIDATE_RESULT) || firstResultText.contains(REVERSED_VALIDATE_RESULT)) {
-            Assertions.assertTrue(true, "Expected result found: " + firstResultText);
-        } else {
-            Assertions.fail("Expected result not found: " + firstResultText);
-        }
+        // Verify if the result matches the expected or reversed expected
+        assertTrue(firstResultText.contains(VALIDATE_RESULT) || firstResultText.contains(REVERSED_VALIDATE_RESULT),
+                "Expected result not found: " + firstResultText);
 
         // Print a message after the test passes
         logger.log(Level.INFO, "Test passed! Search result found: " + firstResultText);
-    }
-
-    private static void navigateAndAgree() {
-        driver.get(utils.Constants.BING_URL);
-        WebElement agreeButton = driver.findElement(By.xpath(utils.Constants.BING_AGREE_BUTTON_ID));
-        agreeButton.click();
     }
 }
