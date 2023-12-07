@@ -44,7 +44,7 @@ public class FirefoxBingSearchTest extends BaseSetupClass {
         WebElement firstResult = wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(BING_FIRST_RESULT_XPATH)));
         String firstResultText = firstResult.getText();
 
-        // Verify if the result matches the expected or reversed expected
+
         // Verify if the result matches the expected or reversed expected
         assertTrue(firstResultText.contains(VALIDATE_RESULT) || firstResultText.contains(REVERSED_VALIDATE_RESULT),
                 "Expected result not found: " + firstResultText);
